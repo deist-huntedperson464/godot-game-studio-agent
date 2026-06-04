@@ -30,8 +30,8 @@ Avoid generated random names in scenes. Rename assets before binding them to res
 1. Define art direction from `docs/game-brief.md`.
 2. Generate a small style target first: player, enemy, pickup, UI icon.
 3. Save concepts under `art/concepts/`.
-4. Save runtime-ready images under `assets/`.
-5. Import through Godot or run an editor import check.
+4. Save runtime-ready images under the selected engine's project asset folder.
+5. Import through the selected engine or run an editor import check.
 6. Bind assets to scenes/resources, Unity prefabs/materials, or Unreal assets/materials as appropriate.
 7. Update `docs/asset-list.md` with status and usage.
 
@@ -57,5 +57,5 @@ For menus and HUD:
 After adding image assets:
 
 - Run the relevant editor import once when available.
-- Check for `.import` files only as generated artifacts, not source truth.
+- Treat engine-generated import metadata as derived artifacts, not source truth.
 - Fix missing resource paths before continuing.

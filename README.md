@@ -17,6 +17,16 @@ This skill helps Codex detect the project engine, route work through directors, 
 - Engine-specific quality gates and release checks.
 - Portable PowerShell scripts for Windows users.
 
+## Support Matrix
+
+| Engine | Detection | Starter docs | Project bootstrap | Editor automation |
+| --- | --- | --- | --- | --- |
+| Godot 4.x | Yes | Yes | Minimal project shell | GodotIQ MCP when configured |
+| Unity | Yes | Yes | Docs and folders only | Use editor/CLI logs when available |
+| Unreal 5.x | Yes | Yes | Docs and folders only | Use commandlets/editor logs when available |
+
+Unity and Unreal support intentionally avoids downloading or creating large editor projects automatically. Create or open those projects with official editor tooling, then use this skill for routing, docs, checks, and implementation guidance.
+
 ## Install
 
 Clone this repository, then run:
@@ -87,6 +97,16 @@ Use $godot-game-studio-agent to improve this Unity prototype's movement, camera,
 ```text
 Use $godot-game-studio-agent to prepare an Unreal release checklist and engine-specific quality gate report.
 ```
+
+## Studio Workflow
+
+The skill routes work through a three-tier studio structure:
+
+- Directors own scope, creative direction, technical risk, art, audio, QA, and release.
+- Department leads own design, engine workflow, gameplay, UI/UX, levels, technical art, tools, performance, and narrative.
+- Specialists own engine implementation, combat, systems, game feel, camera, VFX, materials, UI implementation, audio, QA, accessibility, export, and documentation.
+
+Use `references/role-routing.md` for task routing and `references/role-quality-gates.md` for done criteria.
 
 ## Repository Layout
 

@@ -4,10 +4,10 @@ Use this reference when distributing `godot-game-studio-agent` to another Codex 
 
 ## What Ships
 
-- `SKILL.md`: trigger rules and Godot workflow.
+- `SKILL.md`: trigger rules and multi-engine studio workflow.
 - `agents/openai.yaml`: Codex-facing display metadata.
 - `references/`: install, engine detection, engine workflows, studio roles, role routing, quality gates, game brief, genre templates, first playable, asset pipeline, game feel, playtest QA, dev loop, and release notes.
-- `scripts/check-godot-env.ps1`: read-only environment check.
+- `scripts/check-godot-env.ps1`: legacy Godot-specific environment check.
 - `scripts/check-engine-env.ps1`: read-only Godot/Unity/Unreal environment check.
 - `scripts/detect-game-engine.ps1`: engine marker detection.
 - `scripts/new-godot-project.ps1`: minimal Godot project initializer.
@@ -42,25 +42,30 @@ The default target is:
 
 Restart Codex after installing a new skill or changing MCP configuration.
 
-## First Project Smoke Test
+## Smoke Tests
 
 ```powershell
-& ".\scripts\new-godot-project.ps1" -ProjectPath "<project-root>" -ProjectName "Smoke Test"
-& ".\scripts\create-game-docs.ps1" -ProjectPath "<project-root>" -ProjectName "Smoke Test" -Genre "2D platformer"
-& ".\scripts\check-godot-env.ps1" -ProjectPath "<project-root>"
-& ".\scripts\setup-godot-mcp.ps1" -ProjectPath "<project-root>" -InstallGodotIQ -InstallAddon
+& ".\scripts\detect-game-engine.ps1" -ProjectPath "<project-root>"
+& ".\scripts\check-engine-env.ps1" -ProjectPath "<project-root>"
 ```
 
-For the normal user-facing bootstrap, prefer:
+For a Godot bootstrap smoke test:
 
 ```powershell
 & ".\scripts\start-game-project.ps1" -Engine godot -ProjectPath "<project-root>" -ProjectName "Smoke Test" -Genre "2D platformer"
 ```
 
-After restarting Codex, ask:
+For Unity or Unreal starter-doc smoke tests:
+
+```powershell
+& ".\scripts\start-game-project.ps1" -Engine unity -ProjectPath "<project-root>" -ProjectName "Smoke Test" -Genre "top-down action"
+& ".\scripts\start-game-project.ps1" -Engine unreal -ProjectPath "<project-root>" -ProjectName "Smoke Test" -Genre "action RPG"
+```
+
+After installing or updating the skill, ask Codex:
 
 ```text
-Use $godot-game-studio-agent to create a small playable 2D prototype in this Godot project.
+Use $godot-game-studio-agent to detect this project's engine and route a first-playable plan through the studio roles.
 ```
 
 ## Release Rules

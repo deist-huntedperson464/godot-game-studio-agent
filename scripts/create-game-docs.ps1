@@ -1,6 +1,6 @@
 param(
     [string]$ProjectPath = (Get-Location).Path,
-    [string]$ProjectName = "Godot Game",
+    [string]$ProjectName = "Game",
     [ValidateSet("godot", "unity", "unreal", "unknown")]
     [string]$Engine = "godot",
     [string]$Genre = "custom",
@@ -46,7 +46,7 @@ Generated: $date
 - Genre: $Genre
 - Target platform: $TargetPlatform
 - Perspective: $Perspective
-- One-sentence pitch: A small first-playable Godot prototype with a clear core loop.
+- One-sentence pitch: A small first-playable $Engine prototype with a clear core loop.
 - Player fantasy: The player should understand the goal quickly and feel responsive control plus visible feedback.
 
 ## First Playable
@@ -68,7 +68,7 @@ Generated: $date
 - Audio mood: Placeholder SFX for actions, feedback, UI, success, and failure.
 
 ## Constraints
-- Must-have: Runnable main scene, one core verb, one goal, one obstacle, one success or failure state.
+- Must-have: Runnable entry scene or level, one core verb, one goal, one obstacle, one success or failure state.
 - Out of scope: Large content sets, save systems, shops, complex progression, online features.
 - Risks: Scope creep, unclear feedback, missing assets, weak first-time-player readability.
 "@
@@ -77,7 +77,7 @@ Write-TextFile -Path (Join-Path $docsDir "dev-plan.md") -Force:$Force -Value @"
 # Development Plan
 
 ## Milestone 1: First Playable
-- Create or verify main scene.
+- Create or verify the entry scene or level.
 - Add player-controlled core verb.
 - Add one interactive object, enemy, hazard, puzzle piece, or decision.
 - Add success and failure or retry state.
@@ -99,7 +99,7 @@ Write-TextFile -Path (Join-Path $docsDir "dev-plan.md") -Force:$Force -Value @"
 
 ## Verification
 - Engine: $Engine
-- Godot main scene launches.
+- The selected engine's entry scene or level launches when tooling is available.
 - Unity projects have no new compile errors or missing scripts when Unity is available.
 - Unreal projects have valid project structure and compile-aware Blueprint/C++ checks when Unreal is available.
 - No new parse/compile errors or missing resources are introduced.
@@ -161,7 +161,7 @@ Write-TextFile -Path (Join-Path $docsDir "polish-checklist.md") -Force:$Force -V
 - Buttons have default, hover, pressed, and disabled states when menus exist.
 
 ## Technical
-- Main scene launches.
+- Entry scene or level launches.
 - No new parse errors.
 - No missing resources.
 - No broken node paths.

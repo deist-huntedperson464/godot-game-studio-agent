@@ -94,14 +94,14 @@ offset_left = 24.0
 offset_top = 24.0
 offset_right = 520.0
 offset_bottom = 72.0
-text = "Godot Game Studio Agent project ready."
+text = "Game Studio Agent Godot project ready."
 "@
 
 Write-TextFile -Path (Join-Path $scriptsDir "main.gd") -Value @"
 extends Node2D
 
 func _ready() -> void:
-    print("Godot Game Studio Agent project ready.")
+    print("Game Studio Agent Godot project ready.")
 "@
 
 Write-Host "Created Godot project at $resolvedProject"

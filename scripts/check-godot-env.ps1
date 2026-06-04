@@ -94,7 +94,7 @@ if ($ShowGodotPathOnly) {
 
 $resolvedCodexConfig = Resolve-CodexConfigPath -Path $CodexConfig
 
-Write-Host "Godot Game Studio Agent environment check"
+Write-Host "Game Studio Agent Godot environment check"
 Write-Host "Project: $resolvedProject"
 Write-Host ""
 

@@ -24,12 +24,12 @@ Godot is the most complete first-class engine path because it includes project b
 
 ## Workflow
 
-- **Install or repair tooling:** Read `references/install.md`, run the check script, configure GodotIQ, then verify MCP tools are visible after restart.
+- **Install or repair tooling:** Read `references/install.md`, run `scripts/check-engine-env.ps1`, configure GodotIQ for Godot when needed, and use Unity/Unreal editor logs or bridges only when available.
 - **Start a game:** Detect or choose the engine, read `references/game-brief.md`, choose a shape from `references/genre-templates.md`, then generate `docs/game-brief.md`, `docs/dev-plan.md`, `docs/asset-list.md`, and `docs/polish-checklist.md`.
 - **Route the studio:** Read `references/studio-structure.md` and `references/role-routing.md`; load only the director, lead, and specialist role cards needed for the task.
 - **Build a first playable:** Read `references/first-playable.md`, `references/engine-workflows.md`, and `references/team-workflows.md`. Deliver a complete minute-one experience before expanding scope.
 - **Improve game effect:** Use `references/game-feel.md` for controls, feedback, camera, animation, hit effects, UI clarity, pacing, sound, and juice.
-- **Create visual assets:** Invoke the `imagegen` skill for concept art, textures, sprites, UI mockups, icons, or placeholders. Use `references/asset-pipeline.md`, save project-bound images under `assets/` or `art/`, then import or bind them through Godot scenes/resources.
+- **Create visual assets:** Invoke the `imagegen` skill for concept art, textures, sprites, UI mockups, icons, or placeholders. Use `references/asset-pipeline.md`, save project-bound images inside the project, then import or bind them through the selected engine's scenes, prefabs, blueprints, resources, materials, or UI.
 - **Debug and playtest:** Prefer real editor/runtime feedback over guessing. Read scene state, run the project, inspect logs, use `references/playtest-qa.md` and `references/role-quality-gates.md`, make one focused fix, and rerun.
 - **Prepare release:** Use `references/release.md` when packaging this skill for another Codex installation.
 
