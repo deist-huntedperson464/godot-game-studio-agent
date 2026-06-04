@@ -1,16 +1,23 @@
-# Godot Installation And MCP Setup
+# Installation And Engine Setup
 
-Use this reference when setting up or repairing the Godot/Codex toolchain on a new machine or project. All commands are portable; pass explicit paths when auto-detection is not enough.
+Use this reference when setting up or repairing the Codex game studio toolchain for Godot, Unity, or Unreal. All commands are portable; pass explicit paths when auto-detection is not enough.
 
 ## Detect The Environment
 
 Run:
 
 ```powershell
-& "<skill-root>\scripts\check-godot-env.ps1" -ProjectPath "<project-root>"
+& "<skill-root>\scripts\detect-game-engine.ps1" -ProjectPath "<project-root>"
+& "<skill-root>\scripts\check-engine-env.ps1" -ProjectPath "<project-root>"
 ```
 
-Godot discovery order:
+Engine detection:
+
+- Godot: `project.godot`
+- Unity: `Assets/`, `Packages/manifest.json`, `ProjectSettings/ProjectVersion.txt`
+- Unreal: `*.uproject`
+
+Godot executable discovery order:
 
 - `-GodotPath`
 - `GODOT4_PATH`
@@ -22,21 +29,23 @@ If the project is on a UNC path, prefer passing absolute paths to tools. If a to
 
 ## Initialize A Project
 
-A valid Godot project has `project.godot` at the root. For a game-ready starter with docs and production folders:
+For a game-ready starter with docs and production folders:
 
 ```powershell
-& "<skill-root>\scripts\start-game-project.ps1" -ProjectPath "<project-root>" -ProjectName "My Godot Game" -Genre "2D platformer" -TargetPlatform "desktop" -Perspective "2D"
+& "<skill-root>\scripts\start-game-project.ps1" -Engine godot -ProjectPath "<project-root>" -ProjectName "My Game" -Genre "2D platformer" -TargetPlatform "desktop" -Perspective "2D"
 ```
 
-This creates the Godot shell plus:
+Use `-Engine unity` or `-Engine unreal` to create production docs and starter folders for those engines. The script does not download or generate large Unity/Unreal project files automatically; use official editor tooling for that step.
+
+The starter flow creates:
 
 - `docs/game-brief.md`
 - `docs/dev-plan.md`
 - `docs/asset-list.md`
 - `docs/polish-checklist.md`
-- starter folders for scenes, scripts, resources, UI, assets, art, audio, tests, and exports
+- starter folders for scenes/scripts/resources/UI or engine-appropriate content folders, assets, art, audio, tests, and exports
 
-For only a minimal 2D project:
+For only a minimal Godot 2D project:
 
 ```powershell
 & "<skill-root>\scripts\new-godot-project.ps1" -ProjectPath "<project-root>" -ProjectName "My Godot Game"
@@ -53,7 +62,7 @@ This creates:
 
 ## Install GodotIQ MCP
 
-GodotIQ is the primary MCP because it documents Codex TOML setup directly.
+GodotIQ is the primary Godot MCP because it documents Codex TOML setup directly.
 
 Install or run through `uvx`:
 
@@ -93,9 +102,9 @@ Then open Godot and enable the addon if prompted. If the command fails, capture 
 
 On Windows, keep `PYTHONUTF8=1` for this command. Without it, some Python environments may fail while reading GodotIQ's bundled rule files under a non-UTF-8 console code page.
 
-## Fallback MCP
+## Fallback MCP And Editor Bridges
 
-If GodotIQ is unavailable, use an open-source Godot MCP server:
+If GodotIQ is unavailable for Godot, use an open-source Godot MCP server:
 
 - `bradypp/godot-mcp`: Node/TypeScript server for launching projects, scene operations, debug output, and project metadata.
 - Godot 4.6 MCP variants with an editor addon can inspect and modify the live scene tree.
@@ -113,3 +122,5 @@ READ_ONLY_MODE = "false"
 ```
 
 Build fallback servers exactly as their README specifies before adding them to Codex.
+
+For Unity and Unreal, use editor bridges, CLI/editor logs, or user-provided Console/Output Log evidence when available. This skill does not assume Unity or Unreal automation exists until `check-engine-env.ps1` or active tools confirm it.

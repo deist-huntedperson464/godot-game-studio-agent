@@ -1,15 +1,15 @@
 # Asset Pipeline
 
-Use this reference for ImageGen, placeholder assets, imported art, UI mockups, icons, textures, and final asset replacement.
+Use this reference for ImageGen, placeholder assets, imported art, UI mockups, icons, textures, and final asset replacement across Godot, Unity, and Unreal.
 
 ## Folder Policy
 
 - `art/concepts/`: concept images and mood references.
 - `art/source/`: editable or source art.
-- `assets/sprites/`: runtime sprite images.
-- `assets/textures/`: runtime textures and materials.
-- `assets/ui/`: icons, buttons, frames, panels.
-- `assets/vfx/`: particles, flipbooks, trails, impact images.
+- `assets/`: portable runtime source assets for Godot or shared asset staging.
+- `Assets/`: Unity runtime assets when working inside a Unity project.
+- `Content/`: Unreal runtime content when working inside an Unreal project.
+- `assets/sprites/`, `assets/textures/`, `assets/ui/`, `assets/vfx/`: recommended Godot/shared subfolders.
 - `audio/sfx/`: sound effects.
 - `audio/music/`: music loops and stingers.
 
@@ -32,7 +32,7 @@ Avoid generated random names in scenes. Rename assets before binding them to res
 3. Save concepts under `art/concepts/`.
 4. Save runtime-ready images under `assets/`.
 5. Import through Godot or run an editor import check.
-6. Bind assets to `.tscn`, `.tres`, materials, particles, or themes.
+6. Bind assets to scenes/resources, Unity prefabs/materials, or Unreal assets/materials as appropriate.
 7. Update `docs/asset-list.md` with status and usage.
 
 ## Placeholder Policy
@@ -56,6 +56,6 @@ For menus and HUD:
 
 After adding image assets:
 
-- Run Godot editor import once in headless/editor mode when available.
+- Run the relevant editor import once when available.
 - Check for `.import` files only as generated artifacts, not source truth.
 - Fix missing resource paths before continuing.

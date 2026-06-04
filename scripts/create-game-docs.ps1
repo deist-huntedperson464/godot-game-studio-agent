@@ -1,6 +1,8 @@
 param(
     [string]$ProjectPath = (Get-Location).Path,
     [string]$ProjectName = "Godot Game",
+    [ValidateSet("godot", "unity", "unreal", "unknown")]
+    [string]$Engine = "godot",
     [string]$Genre = "custom",
     [string]$TargetPlatform = "desktop",
     [string]$Perspective = "2D",
@@ -40,6 +42,7 @@ Generated: $date
 
 ## Concept
 - Title: $ProjectName
+- Engine: $Engine
 - Genre: $Genre
 - Target platform: $TargetPlatform
 - Perspective: $Perspective
@@ -95,8 +98,11 @@ Write-TextFile -Path (Join-Path $docsDir "dev-plan.md") -Force:$Force -Value @"
 - Verify imported assets and missing references.
 
 ## Verification
+- Engine: $Engine
 - Godot main scene launches.
-- No new parse errors or missing resources.
+- Unity projects have no new compile errors or missing scripts when Unity is available.
+- Unreal projects have valid project structure and compile-aware Blueprint/C++ checks when Unreal is available.
+- No new parse/compile errors or missing resources are introduced.
 - Core loop can be completed.
 - First-time-player questions in `polish-checklist.md` have clear answers.
 "@

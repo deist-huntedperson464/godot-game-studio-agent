@@ -1,19 +1,20 @@
-# Godot Game Studio Agent
+# Game Studio Agent
 
-Portable Codex skill for building Godot 4.x games with a studio-style workflow.
+Portable Codex skill for building first-playable games in Godot 4.x, Unity, and Unreal Engine 5.x with a professional studio-style role system.
 
-This skill helps Codex initialize Godot projects, configure GodotIQ MCP, generate first-playable game plans, use genre templates, manage ImageGen asset workflows, improve game feel, run playtest QA, and prepare projects for export.
+This skill helps Codex detect the project engine, route work through directors, department leads, and specialists, create game production docs, manage ImageGen asset workflows, improve game feel, run playtest QA, and prepare engine-specific release checks.
 
 ## Features
 
-- Godot 4.x project bootstrap.
-- GodotIQ MCP setup for Codex.
+- Godot, Unity, and Unreal project detection.
+- GodotIQ MCP setup for Godot projects.
+- Professional studio role routing: directors, leads, and specialists.
 - First-playable production workflow.
-- Genre templates for common 2D game types.
+- Genre templates for common game types.
 - Game brief, development plan, asset list, and polish checklist generation.
 - Game-feel guidance for controls, camera, feedback, UI, audio, and VFX.
 - ImageGen-friendly art and asset pipeline.
-- Playtest QA checklist for readable, satisfying prototypes.
+- Engine-specific quality gates and release checks.
 - Portable PowerShell scripts for Windows users.
 
 ## Install
@@ -31,23 +32,35 @@ By default, the installer copies the skill to:
 
 Restart Codex after installing or updating the skill.
 
-## Start A New Game Project
+## Detect A Project
 
 ```powershell
-.\scripts\start-game-project.ps1 `
-  -ProjectPath "<project-root>" `
-  -ProjectName "My Godot Game" `
-  -Genre "2D platformer" `
-  -TargetPlatform "desktop" `
-  -Perspective "2D"
+.\scripts\detect-game-engine.ps1 -ProjectPath "<project-root>"
+.\scripts\check-engine-env.ps1 -ProjectPath "<project-root>"
 ```
 
-This creates a Godot project shell plus starter production documents:
+Detection markers:
 
-- `docs/game-brief.md`
-- `docs/dev-plan.md`
-- `docs/asset-list.md`
-- `docs/polish-checklist.md`
+- Godot: `project.godot`
+- Unity: `Assets/`, `Packages/manifest.json`, `ProjectSettings/ProjectVersion.txt`
+- Unreal: `*.uproject`
+
+## Start A New Game Project
+
+Godot starter:
+
+```powershell
+.\scripts\start-game-project.ps1 -Engine godot -ProjectPath "<project-root>" -ProjectName "My Game" -Genre "2D platformer"
+```
+
+Unity or Unreal starter docs:
+
+```powershell
+.\scripts\start-game-project.ps1 -Engine unity -ProjectPath "<project-root>" -ProjectName "My Game" -Genre "top-down action"
+.\scripts\start-game-project.ps1 -Engine unreal -ProjectPath "<project-root>" -ProjectName "My Game" -Genre "action RPG"
+```
+
+Unity and Unreal flows create production docs and folders but do not download or generate large editor projects automatically.
 
 ## Configure GodotIQ MCP
 
@@ -64,22 +77,24 @@ Restart Codex after changing MCP configuration.
 Example prompts:
 
 ```text
-Use $godot-game-studio-agent to start a roguelike survival prototype and reach a first playable version.
+Use $godot-game-studio-agent to detect this project's engine and route a first-playable plan through the studio roles.
 ```
 
 ```text
-Use $godot-game-studio-agent to improve the prototype's game feel, feedback, camera, UI, and audio.
+Use $godot-game-studio-agent to improve this Unity prototype's movement, camera, VFX, audio, UI, and QA loop.
 ```
 
 ```text
-Use $godot-game-studio-agent to generate an asset list and create placeholder art with ImageGen.
+Use $godot-game-studio-agent to prepare an Unreal release checklist and engine-specific quality gate report.
 ```
 
 ## Repository Layout
 
 ```text
 SKILL.md
+README.md
 agents/
+  roles/
 references/
 scripts/
 ```
@@ -87,10 +102,12 @@ scripts/
 ## Requirements
 
 - Codex with local skill support.
-- Godot 4.x.
+- Godot 4.x for Godot projects.
+- Unity Editor for Unity project checks.
+- Unreal Engine 5.x for Unreal project checks.
 - PowerShell on Windows.
 - `uvx` for GodotIQ MCP setup.
-- Optional: Node.js and Git for fallback MCP tooling.
+- Optional: Node.js and Git for fallback tooling.
 
 ## Safety
 

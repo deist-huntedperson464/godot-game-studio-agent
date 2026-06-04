@@ -6,8 +6,10 @@ Use this reference when distributing `godot-game-studio-agent` to another Codex 
 
 - `SKILL.md`: trigger rules and Godot workflow.
 - `agents/openai.yaml`: Codex-facing display metadata.
-- `references/`: install, game brief, genre templates, first playable, agent roles, asset pipeline, game feel, playtest QA, dev loop, and release notes.
+- `references/`: install, engine detection, engine workflows, studio roles, role routing, quality gates, game brief, genre templates, first playable, asset pipeline, game feel, playtest QA, dev loop, and release notes.
 - `scripts/check-godot-env.ps1`: read-only environment check.
+- `scripts/check-engine-env.ps1`: read-only Godot/Unity/Unreal environment check.
+- `scripts/detect-game-engine.ps1`: engine marker detection.
 - `scripts/new-godot-project.ps1`: minimal Godot project initializer.
 - `scripts/create-game-docs.ps1`: starter game brief, dev plan, asset list, and polish checklist generator.
 - `scripts/start-game-project.ps1`: one-command project and docs bootstrap.
@@ -52,7 +54,7 @@ Restart Codex after installing a new skill or changing MCP configuration.
 For the normal user-facing bootstrap, prefer:
 
 ```powershell
-& ".\scripts\start-game-project.ps1" -ProjectPath "<project-root>" -ProjectName "Smoke Test" -Genre "2D platformer"
+& ".\scripts\start-game-project.ps1" -Engine godot -ProjectPath "<project-root>" -ProjectName "Smoke Test" -Genre "2D platformer"
 ```
 
 After restarting Codex, ask:
@@ -65,5 +67,5 @@ Use $godot-game-studio-agent to create a small playable 2D prototype in this God
 
 - Do not ship local project files, generated local images, logs, credentials, or machine-specific config.
 - Keep paths parameterized; examples may use placeholders only.
-- Keep Godot version guidance broad for Godot 4.x unless a project explicitly requires a specific version.
+- Keep engine version guidance broad unless a project explicitly requires a specific version.
 - Validate with `quick_validate.py` before publishing.
